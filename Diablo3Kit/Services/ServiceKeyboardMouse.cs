@@ -1,13 +1,13 @@
-﻿namespace Diablo3Kit;
+﻿namespace Diablo3Kit.Service;
 
-internal class Service:IDisposable
+internal class ServiceKeyboardMouse:IDisposable
 {
 
     private KeyboardWatcher _keyboardWatcher;
     private CancellationTokenSource _cts;
     private bool _tag;
 
-    internal Service()
+    internal ServiceKeyboardMouse()
     {
         _keyboardWatcher = new KeyboardWatcher(new SyncFactory());
         _cts=new CancellationTokenSource();
@@ -65,11 +65,11 @@ internal class Service:IDisposable
 
 
 
-
-        //key
         Process[] processes = Process.GetProcessesByName("Diablo III64");
         var winHandle = processes[0].MainWindowHandle;
 
+
+        //key
         Task.Factory.StartNew(async () =>
         {
             while (true)

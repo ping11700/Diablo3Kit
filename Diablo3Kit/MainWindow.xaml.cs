@@ -24,7 +24,12 @@ namespace Diablo3Kit
         {
             InitializeComponent();
 
-            var service= new Service();
+            this.DataContext = new MainViewModel();
+
+
+
+
+
         }
     }
 }
